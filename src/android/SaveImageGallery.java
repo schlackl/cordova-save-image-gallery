@@ -168,22 +168,10 @@ public class SaveImageGallery extends CordovaPlugin {
 
             int check = deviceVersion.compareTo("2.3.3");
 
-            File folder;
+            File folder = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
 
-            /*
-             * File path = Environment.getExternalStoragePublicDirectory(
-             * Environment.DIRECTORY_PICTURES ); //this throws error in Android
-             * 2.2
-             */
-            if (check >= 1) {
-                folder = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
-
-                if (!folder.exists()) {
-                    folder.mkdirs();
-                }
-
-            } else {
-                folder = Environment.getExternalStorageDirectory();
+            if (!folder.exists()) {
+                folder.mkdirs();
             }
 
             // building the filename
