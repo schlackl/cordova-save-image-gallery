@@ -8,3 +8,5 @@
 # Editors
 *.sublime-project
 *.sublime-workspace
+
+.vs/
